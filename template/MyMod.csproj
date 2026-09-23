@@ -1,0 +1,48 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!-- Your game folder, with Cosmic Mod Loader installed in it.
+         Xbox app: the Content folder. Steam: the folder with Game.exe. -->
+    <GameDir>C:\XboxGames\MARVEL Cosmic Invasion\Content</GameDir>
+
+    <!-- Rename MyMod here AND in the code's namespace. The loader looks for <AssemblyName>.ModEntry. -->
+    <AssemblyName>MyMod</AssemblyName>
+    <RootNamespace>MyMod</RootNamespace>
+    <Version>1.0.0</Version>
+
+    <TargetFramework>net481</TargetFramework>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <DebugType>none</DebugType>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" />
+    <!-- Build against these. The loader provides them in game, so they are not copied next to your DLL. -->
+    <PackageReference Include="Lib.Harmony" Version="2.4.2" IncludeAssets="compile" />
+    <PackageReference Include="ImGui.NET" Version="1.91.6.1" IncludeAssets="compile" />
+    <Reference Include="CosmicLoader">
+      <HintPath>$(GameDir)\CosmicLoader.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <!-- Game code. Uncomment to use the game's classes directly instead of by name.
+       Xbox app: Game.exe can't be read from the game folder, see README.md. -->
+  <!--
+  <ItemGroup>
+    <Reference Include="ParisEngine"><HintPath>$(GameDir)\ParisEngine.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="FNA"><HintPath>$(GameDir)\FNA.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="Game"><HintPath>$(GameDir)\Game.exe</HintPath><Private>false</Private></Reference>
+  </ItemGroup>
+  -->
+
+  <!-- After each build, copy the DLL into the game's Mods folder (only if the loader is installed there). -->
+  <Target Name="CopyToMods" AfterTargets="Build" Condition="Exists('$(GameDir)\Mods')">
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(GameDir)\Mods" />
+    <Message Importance="high" Text="Copied $(TargetFileName) to $(GameDir)\Mods" />
+  </Target>
+
+</Project>

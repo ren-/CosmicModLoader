@@ -111,6 +111,10 @@ The loader log is at `%LOCALAPPDATA%\CosmicLoader\loader.log`, or click **Open l
 - what happened
 - the loader log (**Share loader log** grabs this session's and the last one's)
 
+## Make your own mod
+
+Start from the [mod template](template/): a working example mod plus steps.
+
 ## More details
 
 <details>
@@ -159,49 +163,5 @@ The app checks the game version before changing anything. It won't touch a versi
 
 </details>
 
-<details>
-<summary>Making mods</summary>
-
-A mod is a .NET Framework 4.x class library (x64 or AnyCPU) in `Mods`. The loader calls
-`<AssemblyName>.ModEntry.Initialize()`. For a settings section, reference `CosmicLoader.dll` and
-`ImGui.NET.dll` (the loader provides both at runtime, so don't ship them). Same idea as REFramework's
-`re.on_draw_ui` / `re.on_config_save`.
-
-```csharp
-using CosmicLoader;
-using ImGuiNET;
-
-namespace MyMod                       // assembly name MyMod -> MyMod.ModEntry
-{
-    public static class ModEntry
-    {
-        static float speed = 1f;
-
-        // Called once, early in game startup (before the engine is set up).
-        public static void Initialize()
-        {
-            new HarmonyLib.Harmony("my.mod").PatchAll();
-            // Every frame the overlay is open and this section is expanded.
-            Overlay.OnDrawUI("My Mod", () =>
-            {
-                ImGui.SliderFloat("Speed", ref speed, 0.5f, 2f);
-                if (ImGui.IsItemHovered()) { ImGui.BeginTooltip(); ImGui.TextUnformatted("How fast things go."); ImGui.EndTooltip(); }
-            });
-            // When the overlay closes and when the game exits: save your settings here.
-            Overlay.OnConfigSave("My Mod", () => { /* save speed */ });
-        }
-    }
-}
-```
-
-- Every DLL in `Mods` loads (by name) before any mod starts, so mods can ship helper libraries. Two copies of one assembly: the highest version wins.
-- An exception in `Initialize` skips that mod and the game keeps running. An exception while drawing shows the error in red in your section for the rest of the session.
-- Use `ImGui.TextUnformatted` and `BeginTooltip` / `EndTooltip`. `Text`, `TextWrapped` and `SetTooltip` read the string as a printf format: a `%` misprints and some sequences crash the game.
-- Call ImGui only inside your draw callback. Outside it there is no frame and a stray call crashes.
-- Draw callbacks run on the game's main thread, so they can touch game state. Levels load on another thread, so lock anything a load-time hook also touches. Don't open your own ImGui window, your section is already inside one.
-- Reference `0Harmony.dll` 2.4 from the game folder instead of shipping your own.
-- Keep settings next to your DLL (`Path.GetDirectoryName(typeof(ModEntry).Assembly.Location)`).
-
-</details>
 
 Free to download and use. Third-party libraries in the zip are MIT, licence texts included.

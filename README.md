@@ -7,6 +7,8 @@ Mod settings open in game with **Insert**.
 
 **[Download the latest version](https://github.com/ren-/CosmicModLoader/releases/latest)**
 
+Mods to try: [Boss Hitstun Overhaul](https://www.nexusmods.com/marvelcosmicinvasion/mods/19)
+
 Made by claymore.
 
 ## Quick install

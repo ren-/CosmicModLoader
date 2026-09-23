@@ -2,6 +2,15 @@
 
 A working example mod to start from. It makes your jumps floaty and has a slider in the overlay.
 
+## Contents
+
+- [You need](#you-need)
+- [Steps](#steps)
+- [What's inside](#whats-inside)
+- [Finding game code](#finding-game-code)
+- [Rules that save you a crash](#rules-that-save-you-a-crash)
+- [Share your mod](#share-your-mod)
+
 ## You need
 
 - [.NET SDK](https://dotnet.microsoft.com/download) 8 or newer

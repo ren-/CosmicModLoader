@@ -11,6 +11,21 @@ Mods to try: [Boss Hitstun Overhaul](https://www.nexusmods.com/marvelcosmicinvas
 
 Made by claymore.
 
+## Contents
+
+- [Quick install](#quick-install)
+- Step by step
+  - [1. Open the app](#1-open-the-app)
+  - [2. Install](#2-install)
+  - [3. Add mods](#3-add-mods)
+  - [4. Mod settings in game](#4-mod-settings-in-game)
+  - [5. Remove a mod or everything](#5-remove-a-mod-or-everything)
+- [Game updated and mods stopped working?](#game-updated-and-mods-stopped-working)
+- [Problems](#problems)
+- [Found a bug?](#found-a-bug)
+- [Make your own mod](#make-your-own-mod)
+- [More details](#more-details)
+
 ## Quick install
 
 1. Download the zip and extract **all** of it into one folder.

@@ -11,7 +11,7 @@ immediately and are saved when you close it. In single player, gameplay pauses w
 
 ## Download
 
-Get `CosmicModLoader-<version>.zip` from [Releases](../../releases/latest). This repository only
+Get `CosmicModLoader-<version>.zip` from [Releases](https://github.com/ren-/CosmicModLoader/releases/latest). This repository only
 hosts the downloads and this page; the source is not published. Mods come separately (for example
 Boss Hitstun Overhaul on Nexus Mods).
 
@@ -151,7 +151,7 @@ namespace MyMod                       // assembly name MyMod -> MyMod.ModEntry
 
 ## Reporting problems
 
-Open an [issue](../../issues) with the game build (Xbox app or Steam), what happened, and
+Open an [issue](https://github.com/ren-/CosmicModLoader/issues) with the game build (Xbox app or Steam), what happened, and
 `%LOCALAPPDATA%\CosmicLoader\loader.log` plus `loader.old.log` attached. For a problem with a
 particular mod, attach that mod's log too.
 

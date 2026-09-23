@@ -162,7 +162,7 @@ The app checks the game version before changing anything. It won't touch a versi
 
 A mod is a .NET Framework 4.x class library (x64 or AnyCPU) in `Mods`. The loader calls
 `<AssemblyName>.ModEntry.Initialize()`. For a settings section, reference `CosmicLoader.dll` and
-`ImGui.NET.dll` from the game folder (don't ship them). Same idea as REFramework's
+`ImGui.NET.dll` (the loader provides both at runtime, so don't ship them). Same idea as REFramework's
 `re.on_draw_ui` / `re.on_config_save`.
 
 ```csharp

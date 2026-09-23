@@ -1,0 +1,40 @@
+name: Bug report
+description: Something broke or doesn't work
+labels: [bug]
+body:
+  - type: dropdown
+    id: version
+    attributes:
+      label: Game version
+      options:
+        - Xbox app / Game Pass
+        - Steam
+    validations:
+      required: true
+  - type: input
+    id: loader
+    attributes:
+      label: Loader version
+      description: Shown in the app's title bar.
+      placeholder: "1.0.0"
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What you did, what you expected, what you got.
+    validations:
+      required: true
+  - type: textarea
+    id: log
+    attributes:
+      label: Loader log
+      description: In the app click **Share loader log**, then paste here or drag the files in (`loader.log` and `loader.old.log`).
+    validations:
+      required: true
+  - type: input
+    id: mods
+    attributes:
+      label: Mods installed
+      placeholder: "Boss Hitstun Overhaul 0.5.1"

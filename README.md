@@ -137,11 +137,13 @@ Start from the [mod template](template/): a working example mod plus steps.
 
 | Version | Game folder |
 |---|---|
-| Xbox app 26.6.8.0 | `C:\XboxGames\MARVEL Cosmic Invasion\Content` |
+| Steam, Doctor Doom update (1.0.0.14793), loader 1.0.1 and later | `...\steamapps\common\MARVEL Cosmic Invasion` |
+| Xbox app 26.11.9.0, Doctor Doom update, loader 1.0.1 and later | `C:\XboxGames\MARVEL Cosmic Invasion\Content` |
+| Steam beta preview of that update (1.0.0.14764), loader 1.0.1 and later | `...\steamapps\common\MARVEL Cosmic Invasion` |
 | Steam, July 2026 (1.0.0.13466) | `...\steamapps\common\MARVEL Cosmic Invasion` |
+| Xbox app 26.6.8.0 (July 2026) | `C:\XboxGames\MARVEL Cosmic Invasion\Content` |
 
 The app checks the game version before changing anything. It won't touch a version it doesn't know.
-
 </details>
 
 <details>
